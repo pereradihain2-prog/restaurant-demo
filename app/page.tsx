@@ -36,6 +36,33 @@ const menu = [
   },
 ];
 
+const galleryPhotos = [
+  {
+    src: "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=1400&q=80",
+    alt: "Margherita pizza fresh from the oven",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=1400&q=80",
+    alt: "Tagliatelle pasta twirled on a fork",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1400&q=80",
+    alt: "Tiramisu with cocoa dusting",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1400&q=80",
+    alt: "Antipasti board with olives and cheeses",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1400&q=80",
+    alt: "Caprese salad with basil and olive oil",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=1400&q=80",
+    alt: "Negroni-style cocktail with orange peel",
+  },
+];
+
 export default function Home() {
   return (
     <div className="flex min-h-dvh flex-col">
@@ -54,6 +81,12 @@ export default function Home() {
               className="text-sm font-medium tracking-wide text-stone-200 transition hover:text-white"
             >
               Menu
+            </a>
+            <a
+              href="#gallery"
+              className="text-sm font-medium tracking-wide text-stone-200 transition hover:text-white"
+            >
+              Gallery
             </a>
             <a
               href="#about"
@@ -82,6 +115,9 @@ export default function Home() {
             <div className="absolute right-0 mt-2 w-48 rounded-xl border border-white/10 bg-stone-950/95 py-2 shadow-xl backdrop-blur-md">
               <a href="#menu" className="block px-4 py-3 text-sm text-stone-100 hover:bg-white/5">
                 Menu
+              </a>
+              <a href="#gallery" className="block px-4 py-3 text-sm text-stone-100 hover:bg-white/5">
+                Gallery
               </a>
               <a href="#about" className="block px-4 py-3 text-sm text-stone-100 hover:bg-white/5">
                 About
@@ -170,6 +206,47 @@ export default function Home() {
                     ))}
                   </ul>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="gallery" className="scroll-mt-24 border-t border-stone-200 bg-white py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-700">Gallery</p>
+              <h2 className="mt-3 font-display text-4xl font-semibold text-stone-900 sm:text-5xl">A few favorites</h2>
+              <p className="mt-4 text-stone-600 sm:text-lg">
+                A glimpse of what we love to bring to the table—simple, seasonal, and unmistakably Italian.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {galleryPhotos.map((photo) => (
+                <figure
+                  key={photo.src}
+                  className="group relative overflow-hidden rounded-2xl border border-stone-200 bg-stone-50 shadow-sm shadow-stone-200/40"
+                >
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-stone-950/40 via-stone-950/0 to-transparent opacity-90 transition group-hover:opacity-100"
+                      aria-hidden
+                    />
+                  </div>
+                  <figcaption className="flex items-center justify-between gap-3 px-6 py-5">
+                    <p className="text-sm font-medium text-stone-900">{photo.alt}</p>
+                    <span className="shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-amber-700">
+                      Unsplash
+                    </span>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
