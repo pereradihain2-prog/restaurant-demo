@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ReservationForm } from "./reservation-form";
 
 const menu = [
   {
@@ -61,7 +62,7 @@ export default function Home() {
               About
             </a>
             <a
-              href="#contact"
+              href="#reserve"
               className="rounded-full bg-amber-500/90 px-5 py-2 text-sm font-semibold text-stone-950 transition hover:bg-amber-400"
             >
               Reserve
@@ -85,8 +86,11 @@ export default function Home() {
               <a href="#about" className="block px-4 py-3 text-sm text-stone-100 hover:bg-white/5">
                 About
               </a>
-              <a href="#contact" className="block px-4 py-3 text-sm font-semibold text-amber-400 hover:bg-white/5">
-                Contact
+              <a href="#reserve" className="block px-4 py-3 text-sm font-semibold text-amber-400 hover:bg-white/5">
+                Reserve
+              </a>
+              <a href="#contact" className="block px-4 py-3 text-sm text-stone-100 hover:bg-white/5">
+                Visit
               </a>
             </div>
           </details>
@@ -126,7 +130,7 @@ export default function Home() {
                 View the menu
               </a>
               <a
-                href="#contact"
+                href="#reserve"
                 className="inline-flex w-full min-w-[200px] items-center justify-center rounded-full border border-white/30 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/50 hover:bg-white/10 sm:w-auto"
               >
                 Book a table
@@ -209,6 +213,39 @@ export default function Home() {
                 </div>
               </dl>
             </div>
+          </div>
+        </section>
+
+        <section id="reserve" className="scroll-mt-24 border-t border-stone-200 bg-white py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+              <div className="mx-auto max-w-xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-700">Reservations</p>
+                <h2 className="mt-3 font-display text-4xl font-semibold text-stone-900 sm:text-5xl">
+                  Reserve your table
+                </h2>
+                <p className="mt-4 text-pretty text-stone-600 sm:text-lg">
+                  Share an evening with us—tell us when you would like to dine, and our team will follow up to confirm
+                  your booking.
+                </p>
+                <div className="mt-10 hidden h-px w-16 bg-amber-600/80 lg:block" aria-hidden />
+                <p className="mt-8 hidden text-sm leading-relaxed text-stone-500 lg:block">
+                  For parties over twelve, private dining, or special occasions, please call{" "}
+                  <a className="font-medium text-amber-800 underline-offset-4 transition hover:underline" href="tel:+12125550148">
+                    +1 (212) 555-0148
+                  </a>
+                  .
+                </p>
+              </div>
+              <ReservationForm />
+            </div>
+            <p className="mt-10 text-center text-sm text-stone-500 lg:hidden">
+              Parties over twelve or private dining? Call{" "}
+              <a className="font-medium text-amber-800" href="tel:+12125550148">
+                +1 (212) 555-0148
+              </a>
+              .
+            </p>
           </div>
         </section>
 
